@@ -22,3 +22,12 @@ def os_check():
 
     else:
         raise OSError(Fore.RED + Back.YELLOW + ' This only works on windows ' + Style.RESET_ALL)
+
+# Setup Qbit-WEB
+def qbit_web_setup(local_url:str,qb_username:str, qb_pass=None):
+    manipulate_config('client', local_url)
+    if qb_pass is None:
+        qb_pass=''
+    manipulate_config(qb_username, qb_pass)
+
+    # qbit_web_setup('http://127.0.0.1:8080', 'admin')
